@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_28_125017) do
+ActiveRecord::Schema.define(version: 2020_11_28_140531) do
 
   create_table "cards", force: :cascade do |t|
     t.string "side_a"
     t.string "side_b"
-    t.integer "set_id", null: false
+    t.integer "deck_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["set_id"], name: "index_cards_on_set_id"
+    t.index ["deck_id"], name: "index_cards_on_deck_id"
   end
 
   create_table "decks", force: :cascade do |t|
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_11_28_125017) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "cards", "sets"
+  add_foreign_key "cards", "decks"
   add_foreign_key "decks", "users"
   add_foreign_key "games", "decks"
 end

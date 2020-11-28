@@ -1,3 +1,3 @@
 class Card < ApplicationRecord
-  belongs_to :set
+  belongs_to :deck
 end
