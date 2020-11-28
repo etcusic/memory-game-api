@@ -9,9 +9,10 @@
 #     - rails g model Game player_name:string deck:belongs_to score:integer time_limit:integer --no-test-framework
 # - Clock (not sure if I need just yet)
 
-User.delete_all
-Deck.delete_all
+# binding.pry
 Card.delete_all
+Deck.delete_all
+User.delete_all
 # Game.delete_all
 
 MUPPETS = [
@@ -54,21 +55,20 @@ SET1 = [
 
 12.times do |i|
     User.create(
-        id: i,
+        id: (i + 1),
         name: MUPPETS[i][:name],
         image: MUPPETS[i][:photo],
         cumulative_score: 0
     )
 end
-binding.pry
+
 beaker = User.find_by_id(1)
 nfl_deck = beaker.decks.build(id: 1, title: "NFL teams")
 nfl_deck.save
-binding.pry
+
 20.times do |i|
     deck = Deck.find_by_id(1)
-    binding.pry
-    card = deck.cards.build(id: i, side_a: SET1[i][:side_a], side_b: SET1[i][:side_b])
+    card = deck.cards.build(id: (i + 1), side_a: SET1[i][:side_a], side_b: SET1[i][:side_b])
     card.save
 end
 
