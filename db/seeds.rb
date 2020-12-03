@@ -57,7 +57,6 @@ SET1 = [
     {side_a: "Philadelphia", side_b: "Eagles"},
     {side_a: "Dallas", side_b: "Cowboys"},
     {side_a: "New Orleans", side_b: "Saints"},
-    {side_a: "Detroit", side_b: "Lions"},
     {side_a: "San Francisco", side_b: "49ers"},
     {side_a: "Arizona", side_b: "Cardinals"}
 ]
@@ -75,7 +74,7 @@ beaker = User.find_by_id(1)
 nfl_deck = beaker.decks.build(id: 1, title: "NFL teams")
 nfl_deck.save
 
-20.times do |i|
+SET1.length.times do |i|
     deck = Deck.find_by_id(1)
     card = deck.cards.build(id: (i + 1), side_a: SET1[i][:side_a], side_b: SET1[i][:side_b])
     card.save
