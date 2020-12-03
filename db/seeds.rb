@@ -1,12 +1,12 @@
 # Class Structure:
 # - User (has_many :sets, :games) - seed Muppets as users; have dropdown selector to choose who you play as
-#     - rails g model User name:string image:string cumulative_score:integer --no-test-framework
+#     - rails g resource User name:string image:string cumulative_score:integer --no-test-framework
 # - Deck (belongs_to :user, has_many :cards)
-#     - rails g model Deck title:string user:belongs_to --no-test-framework
+#     - rails g resource Deck title:string user:belongs_to --no-test-framework
 # - Card (belongs_to :deck)
-#     - rails g model Card side_a:string side_b:string deck:belongs_to --no-test-framework
+#     - rails g resource Card side_a:string side_b:string deck:belongs_to --no-test-framework
 # - Game (belongs_to :user, :deck)
-#     - rails g model Game player_name:string deck:belongs_to score:integer time_limit:integer --no-test-framework
+#     - rails g resource Game player_name:string deck:belongs_to score:integer time_limit:integer --no-test-framework
 # - Clock (not sure if I need just yet)
 
 # binding.pry
@@ -39,7 +39,7 @@ SET1 = [
     {side_a: "Jacksonville", side_b: "Jaguars"},
     {side_a: "Indianapolis", side_b: "Colts"},
     {side_a: "Buffalo", side_b: "Bills"},
-    {side_a: "Miami", side_b: "Giants"},
+    {side_a: "Miami", side_b: "Dolphins"},
     {side_a: "Washington", side_b: "Football Team"},
     {side_a: "Seattle", side_b: "Seahawks"},
     {side_a: "Chicago", side_b: "Bears"},
@@ -50,7 +50,16 @@ SET1 = [
     {side_a: "Atlanta", side_b: "Falcons"},
     {side_a: "Carolina", side_b: "Panthers"},
     {side_a: "Pittsburg", side_b: "Steelers"},
-    {side_a: "Baltimore", side_b: "Ravens"}
+    {side_a: "Baltimore", side_b: "Ravens"},
+    {side_a: "Cleveland", side_b: "Browns"},
+    {side_a: "Cincinnati", side_b: "Bengals"},
+    {side_a: "Las Vegas", side_b: "Raiders"},
+    {side_a: "Philadelphia", side_b: "Eagles"},
+    {side_a: "Dallas", side_b: "Cowboys"},
+    {side_a: "New Orleans", side_b: "Saints"},
+    {side_a: "Detroit", side_b: "Lions"},
+    {side_a: "San Francisco", side_b: "49ers"},
+    {side_a: "Arizona", side_b: "Cardinals"}
 ]
 
 12.times do |i|
