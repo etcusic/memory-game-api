@@ -1,10 +1,8 @@
 class GameLogsController < ApplicationController
     
     def index
-        @game_logs = GameLog.all
+        @game_logs = GameLog.order('score DESC')[0..19]
         render json: @game_logs
-        # add some seed data to check on this
-        # binding.pry
     end
 
     def create

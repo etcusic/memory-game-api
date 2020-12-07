@@ -15,7 +15,7 @@
 Card.delete_all
 Deck.delete_all
 User.delete_all
-# Game.delete_all
+GameLog.delete_all
 
 MUPPETS = [
     {name: "Beaker", photo: "/photos/dr_beaker.jpg"},
@@ -118,3 +118,12 @@ SET2.length.times do |i|
     card.save
 end
 
+20.times do |i|
+    GameLog.create(
+        id: (i + 1),
+        level: 1,
+        score: rand(1..100),
+        deck_id: rand(1..2),
+        user_id: rand(1..12)
+    )
+end
