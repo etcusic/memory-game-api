@@ -1,3 +1,4 @@
 class User < ApplicationRecord
-    has_many :decks, :game_logs
+    has_many :decks
+    has_many :game_logs
 end

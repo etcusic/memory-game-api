@@ -117,3 +117,4 @@ SET2.length.times do |i|
     card = deck.cards.build(id: (i + 29), side_a: SET2[i][:side_a], side_b: SET2[i][:side_b])
     card.save
 end
+
