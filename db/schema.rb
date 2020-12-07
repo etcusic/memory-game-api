@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_28_140531) do
+ActiveRecord::Schema.define(version: 2020_12_07_162223) do
 
   create_table "cards", force: :cascade do |t|
     t.string "side_a"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 2020_11_28_140531) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_decks_on_user_id"
+  end
+
+  create_table "game_logs", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "deck_id", null: false
+    t.integer "score"
+    t.integer "level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deck_id"], name: "index_game_logs_on_deck_id"
+    t.index ["user_id"], name: "index_game_logs_on_user_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -49,5 +60,7 @@ ActiveRecord::Schema.define(version: 2020_11_28_140531) do
 
   add_foreign_key "cards", "decks"
   add_foreign_key "decks", "users"
+  add_foreign_key "game_logs", "decks"
+  add_foreign_key "game_logs", "users"
   add_foreign_key "games", "decks"
 end

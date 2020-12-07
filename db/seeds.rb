@@ -8,6 +8,8 @@
 # - Game (belongs_to :user, :deck)
 #     - rails g resource Game player_name:string deck:belongs_to score:integer time_limit:integer --no-test-framework
 # - Clock (not sure if I need just yet)
+# - GameLog (belongs_to :user, belongs_to :deck)
+#     - rails g resource GameLog user:belongs_to deck:belongs_to score:integer level:integer
 
 # binding.pry
 Card.delete_all
@@ -61,6 +63,33 @@ SET1 = [
     {side_a: "Arizona", side_b: "Cardinals"}
 ]
 
+SET2 = [
+    {side_a: "Tampa Bay", side_b: "Rays"},
+    {side_a: "Kansas City", side_b: "Royals"},
+    {side_a: "Toronto", side_b: "Blue Jays"},
+    {side_a: "Baltimore", side_b: "Orioles"},
+    {side_a: "Boston", side_b: "Red Sox"},
+    {side_a: "Minnesota", side_b: "Twins"},
+    {side_a: "Cleveland", side_b: "Indians"},
+    {side_a: "Detroit", side_b: "Tigers"},
+    {side_a: "Oakland", side_b: "A's"},
+    {side_a: "Houston", side_b: "Astros"},
+    {side_a: "Seattle", side_b: "Mariners"},
+    {side_a: "Texas", side_b: "Rangers"},
+    {side_a: "Atlanta", side_b: "Braves"},
+    {side_a: "Miami", side_b: "Marlins"},
+    {side_a: "Philadelphia", side_b: "Phillies"},
+    {side_a: "Washington", side_b: "Nationals"},
+    {side_a: "St Louis", side_b: "Cardinals"},
+    {side_a: "Cincinnati", side_b: "Reds"},
+    {side_a: "Milwaukee", side_b: "Brewers"},
+    {side_a: "Pittsburg", side_b: "Pirates"},
+    {side_a: "San Diego", side_b: "Padres"},
+    {side_a: "San Francisco", side_b: "Giants"},
+    {side_a: "Colorado", side_b: "Rockies"},
+    {side_a: "Arizona", side_b: "Diamondbacks"}
+]
+
 12.times do |i|
     User.create(
         id: (i + 1),
@@ -74,9 +103,17 @@ beaker = User.find_by_id(1)
 nfl_deck = beaker.decks.build(id: 1, title: "NFL teams")
 nfl_deck.save
 
+mlb_deck = beaker.decks.build(id: 2, title: "MLB teams")
+mlb_deck.save
+
 SET1.length.times do |i|
     deck = Deck.find_by_id(1)
     card = deck.cards.build(id: (i + 1), side_a: SET1[i][:side_a], side_b: SET1[i][:side_b])
     card.save
 end
 
+SET2.length.times do |i|
+    deck = Deck.find_by_id(2)
+    card = deck.cards.build(id: (i + 29), side_a: SET2[i][:side_a], side_b: SET2[i][:side_b])
+    card.save
+end
