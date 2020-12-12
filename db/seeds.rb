@@ -12,10 +12,10 @@
 #     - rails g resource GameLog user:belongs_to deck:belongs_to score:integer level:integer
 
 # binding.pry
+GameLog.delete_all
 Card.delete_all
 Deck.delete_all
 User.delete_all
-GameLog.delete_all
 
 MUPPETS = [
     {name: "Beaker", photo: "/photos/dr_beaker.jpg"},

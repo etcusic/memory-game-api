@@ -1,7 +1,7 @@
 class GameLogsController < ApplicationController
     
     def index
-        @game_logs = GameLog.order('score DESC')[0..19]
+        @game_logs = GameLog.order('score DESC')[0..11].map { | log | {user: log.user.name, deck: log.deck.title, score: log.score} }
         render json: @game_logs
     end
 
