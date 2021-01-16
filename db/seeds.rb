@@ -10,6 +10,8 @@
 # - Clock (not sure if I need just yet)
 # - GameLog (belongs_to :user, belongs_to :deck)
 #     - rails g resource GameLog user:belongs_to deck:belongs_to score:integer level:integer
+# - ConnectFourLog (belongs_to :user, belongs_to :deck)
+#     - rails g resource ConnectFourLog user:belongs_to deck:belongs_to time:integer outcome:integer
 
 # binding.pry
 GameLog.delete_all
@@ -122,7 +124,7 @@ end
     GameLog.create(
         id: (i + 1),
         level: 1,
-        score: rand(1..100),
+        score: rand(1..200),
         deck_id: rand(1..2),
         user_id: rand(1..12)
     )

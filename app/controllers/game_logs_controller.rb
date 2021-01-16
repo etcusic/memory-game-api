@@ -7,15 +7,11 @@ class GameLogsController < ApplicationController
 
     def create
         @game_log = GameLog.new(game_log_params)
-        # binding.pry
         @game_log.save
-        # if @game_log.save
-        #     binding.pry
-        # else
-        #     binding.pry
-        # end
-        redirect_to '/decks' #game_logs_path
+        redirect_to '/decks' 
     end
+
+    private
 
     def game_log_params
         params.require(:game_log).permit(:user_id, :deck_id, :score, :level)

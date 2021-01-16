@@ -1,0 +1,2 @@
+class ConnectFourLogsController < ApplicationController
+end
