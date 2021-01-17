@@ -1,7 +1,7 @@
 class ConnectFourLogsController < ApplicationController
        
     def index
-        @connect_four_logs = ConnectFourLog.order('score DESC')[0..11].map { | log | {user: log.user.name, deck: log.deck.title, time: log.time, outcome: log.outcome} }
+        @connect_four_logs = ConnectFourLog.all.map { | log | {user: log.user.name, deck: log.deck.title, time: log.time, outcome: log.outcome} }
         render json: @connect_four_logs
     end
 

@@ -14,10 +14,13 @@
 #     - rails g resource ConnectFourLog user:belongs_to deck:belongs_to time:integer outcome:integer
 
 # binding.pry
+ConnectFourLog.delete_all
 GameLog.delete_all
 Card.delete_all
 Deck.delete_all
 User.delete_all
+
+#   rails s -p 3001  => use for React app
 
 MUPPETS = [
     {name: "Beaker", photo: "/photos/dr_beaker.jpg"},
@@ -125,6 +128,16 @@ end
         id: (i + 1),
         level: 1,
         score: rand(1..200),
+        deck_id: rand(1..2),
+        user_id: rand(1..12)
+    )
+end
+
+20.times do |i|
+    ConnectFourLog.create(
+        id: (i + 1),
+        time: rand(20..500),
+        outcome: ["won", "lost", "draw", "quit"][rand(0..3)],
         deck_id: rand(1..2),
         user_id: rand(1..12)
     )

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_16_011054) do
+ActiveRecord::Schema.define(version: 2021_01_17_195559) do
 
   create_table "cards", force: :cascade do |t|
     t.string "side_a"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_01_16_011054) do
     t.integer "user_id", null: false
     t.integer "deck_id", null: false
     t.integer "time"
-    t.integer "outcome"
+    t.string "outcome"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["deck_id"], name: "index_connect_four_logs_on_deck_id"
