@@ -5,10 +5,8 @@ class UsersController < ApplicationController
         render json: @users
     end
 
-    def connect_four_logs
-        @connect_four_logs = User.find_by_id(user_params.id).connect_four_logs
+    def show
         binding.pry
-        render json: @connect_four_logs
     end
 
     private

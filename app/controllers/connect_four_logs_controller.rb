@@ -1,8 +1,9 @@
 class ConnectFourLogsController < ApplicationController
        
     def index
-        binding.pry
-        @connect_four_logs = ConnectFourLog.all.map { | log | {user: log.user.name, deck: log.deck.title, time: log.time, outcome: log.outcome} }
+        # binding.pry
+        # @connect_four_logs = ConnectFourLog.all.map { | log | {user: log.user.name, deck: log.deck.title, time: log.time, outcome: log.outcome} }
+        @connect_four_logs = ConnectFourLog.where(user_id: params["user_id"]).map { | log | {user: log.user.name, deck: log.deck.title, time: log.time, outcome: log.outcome} }
         render json: @connect_four_logs
     end
 
