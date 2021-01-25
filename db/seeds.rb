@@ -133,7 +133,7 @@ end
     )
 end
 
-20.times do |i|
+100.times do |i|
     ConnectFourLog.create(
         id: (i + 1),
         time: rand(20..500),
