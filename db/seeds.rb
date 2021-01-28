@@ -136,8 +136,8 @@ end
 100.times do |i|
     ConnectFourLog.create(
         id: (i + 1),
-        time: rand(80..600),
-        outcome: ["won", "lost", "draw", "quit"][rand(0..3)],
+        time: rand(30..500),
+        outcome: ["won", "lost", "draw"][rand(0..2)],
         deck_id: rand(1..2),
         user_id: rand(1..12)
     )
